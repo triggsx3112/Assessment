@@ -20,9 +20,12 @@ To Begin the game choose the amount of questions
 you wish to be asked, or press <enter> for
 infinite mode.
 
+Then choose the difficulty level you want.
+
 your goal is to answer as many questions as you
 can correctly.
 
+press xxx end the game at anytime.
 Good luck!
 
     ''')
@@ -50,6 +53,24 @@ def int_check(question):
             print(error)
 
 
+def level_check(question):
+    while True:
+
+        response = input(question).lower()
+
+
+        if response == "1" or response == "level 1":
+            return "Level 1"
+        elif response == "2" or response == "level 2":
+            return "level 2"
+        elif response == "3" or response == "level 3":
+            return "level 3"
+        elif response == "4" or response == "level 4":
+            return "level 4"
+        elif response == "5" or response == "level 5":
+            return "level 5"
+        else:
+                print("please enter a number between 1 and 5")
 
 
 
@@ -79,6 +100,8 @@ num_rounds = int_check("Rounds <enter for infinite>: ")
 if num_rounds == "infinite":
     mode = "infinite"
     num_rounds = 5
+    
+    print(level_check("what level? "))
 
 while rounds_played < num_rounds:
 
@@ -94,22 +117,54 @@ while rounds_played < num_rounds:
 
 
 
-    if result == "tie":
-        rounds_tied += 1
-        feedback = "its a tie"
-    elif result == "lose":
-        rounds_lost += 1
-        feedback = "You lose :( "
-    else:
-        feedback = "You won :) "
-
     round_feedback = f" {feedback}"
     history_item = f"round: {rounds_played} - {round_feedback}"
 
     print(round_feedback)
-    game_history.append(history_item)
+    #game_history.append(history_item)
 
     rounds_played += 1
 
     if mode == "infinite":
         num_rounds += 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
