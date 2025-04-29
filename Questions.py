@@ -99,6 +99,36 @@ while rounds_played < num_rounds:
         print(answer)
         int(input("your answer "))
 
+    if rounds_played == 1:
+        answer = random.choice(question_list[:-1])
+        print(answer)
+        int(input("your answer "))
+
+    if rounds_played == 2:
+        answer = random.choice(question_list[:-1])
+        print(answer)
+        int(input("your answer "))
+
+    if rounds_played == 3:
+        answer = random.choice(question_list[:-1])
+        print(answer)
+        int(input("your answer "))
+
+    if rounds_played == 4:
+        answer = random.choice(question_list[:-1])
+        print(answer)
+        int(input("your answer "))
+
+    if rounds_played == 5:
+        answer = random.choice(question_list[:-1])
+        print(answer)
+        int(input("your answer "))
+
+    if rounds_played == 6:
+        answer = random.choice(question_list[:-1])
+        print(answer)
+        int(input("your answer "))
+
 
 
         
