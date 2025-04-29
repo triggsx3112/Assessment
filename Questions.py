@@ -1,3 +1,24 @@
+import random
+
+def string_checker(question, valid_ans=('yes', 'no')):
+
+    error = f"Please enter a valid option from the following list: {valid_ans}"
+
+    while True:
+
+        user_response = input(question).lower()
+
+        for item in valid_ans:
+            if item == user_response:
+                return item
+
+            elif user_response == item[0]:
+                return item
+
+        print(error)
+        print()
+
+
 def int_check(question):
 
     while True:
@@ -41,6 +62,9 @@ def level_check(question):
                 print("please enter a number between 1 and 5")
 
 
+question_list = [" 37+123= ", "67+58= ","56+34= ","21+43= "]
+
+
 rounds_played = 0
 mode = "regular"
 level = "regular"
@@ -70,8 +94,14 @@ while rounds_played < num_rounds:
 
     print(rounds_heading)
 
-    if rounds_played = 1
-        int(input("3+5"))
+    if rounds_played == 0:
+        answer = random.choice(question_list[:-1])
+        print(answer)
+        int(input("your answer "))
+
+
+
+        
 
 
 
