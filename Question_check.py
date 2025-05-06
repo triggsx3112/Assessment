@@ -1,4 +1,9 @@
 
+
+# def question_check():
+
+
+
 def level_check(question):
     while True:
 
@@ -19,4 +24,7 @@ def level_check(question):
                 print("please enter a number between 1 and 5")
 
 print(level_check("what level? "))
-    
+
+
+
+
