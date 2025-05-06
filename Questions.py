@@ -62,9 +62,12 @@ def level_check(question):
                 print("please enter a number between 1 and 5")
 
 
-question_list = [" 37+123= ", "67+58= ","56+34= ","21+43= "]
 
+num_1 = random.randint(1, 100)
+num_2 = random.randint(1, 100)
+operator = random.randint(2, 10)
 
+response = "regular"
 rounds_played = 0
 mode = "regular"
 level = "regular"
@@ -83,7 +86,6 @@ if num_rounds == "infinite":
 
 
 
-
 while rounds_played < num_rounds:
 
     if mode == "infinite":
@@ -95,46 +97,15 @@ while rounds_played < num_rounds:
     print(rounds_heading)
 
     if rounds_played == 0:
-        answer = random.choice(question_list[:-1])
-        print(answer)
-        int(input("your answer "))
 
-    if rounds_played == 1:
-        answer = random.choice(question_list[:-1])
-        print(answer)
-        int(input("your answer "))
-
-    if rounds_played == 2:
-        answer = random.choice(question_list[:-1])
-        print(answer)
-        int(input("your answer "))
-
-    if rounds_played == 3:
-        answer = random.choice(question_list[:-1])
-        print(answer)
-        int(input("your answer "))
-
-    if rounds_played == 4:
-        answer = random.choice(question_list[:-1])
-        print(answer)
-        int(input("your answer "))
-
-    if rounds_played == 5:
-        answer = random.choice(question_list[:-1])
-        print(answer)
-        int(input("your answer "))
-
-    if rounds_played == 6:
-        answer = random.choice(question_list[:-1])
-        print(answer)
-        int(input("your answer "))
-
-
-
-        
-
-
-
+        ans = random.randint(100, 10000)
+        ans = num_1 * operator
+        question = f"\n {num_1} x {operator}= "
+        int(input(question))
+        if response == ans:
+            print("correct")
+        else:
+            print("incorrect")
 
 
 
