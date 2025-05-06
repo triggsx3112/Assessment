@@ -1,3 +1,23 @@
+import random
+
+
+def string_checker(question, valid_ans=('yes', 'no')):
+
+    error = f"Please enter a valid option from the following list: {valid_ans}"
+
+    while True:
+
+        user_response = input(question).lower()
+
+        for item in valid_ans:
+            if item == user_response:
+                return item
+
+            elif user_response == item[0]:
+                return item
+
+        print(error)
+        print()
 
 
 def yes_no(question):
@@ -73,12 +93,13 @@ def level_check(question):
                 print("please enter a number between 1 and 5")
 
 
+num_1 = random.randint(1, 100)
+num_2 = random.randint(1, 100)
+operator = random.randint(2, 10)
 
-
+response = "regular"
 mode = "regular"
 rounds_played = 0
-rounds_tied = 0
-rounds_lost = 0
 end_game = "no"
 feedback = ""
 
@@ -100,8 +121,17 @@ num_rounds = int_check("Rounds <enter for infinite>: ")
 if num_rounds == "infinite":
     mode = "infinite"
     num_rounds = 5
-    
-    print(level_check("what level? "))
+
+levels_select = level_check("What level? ")
+
+if levels_select == "level 1":
+    level = "level 1"
+    levels_select = 1
+
+
+
+    #if user_choice == "xxx":
+        #break
 
 while rounds_played < num_rounds:
 
@@ -112,6 +142,18 @@ while rounds_played < num_rounds:
         rounds_heading = f"\n round {rounds_played + 1} of {num_rounds} "
 
     print(rounds_heading)
+
+
+    if rounds_played == 0:
+
+        ans = random.randint(100, 10000)
+        ans = num_1 * operator
+        question = f"\n {num_1} x {operator}= "
+        int(input(question))
+        if response == ans:
+            print("correct")
+        else:
+            print("incorrect")
 
 
 
@@ -125,8 +167,7 @@ while rounds_played < num_rounds:
 
     rounds_played += 1
 
-    if mode == "infinite":
-        num_rounds += 1
+
 
 
 
