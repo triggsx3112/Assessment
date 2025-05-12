@@ -99,6 +99,7 @@ operator = random.randint(2, 10)
 
 response = "regular"
 mode = "regular"
+
 rounds_played = 0
 end_game = "no"
 feedback = ""
@@ -141,19 +142,23 @@ while rounds_played < num_rounds:
     else:
         rounds_heading = f"\n round {rounds_played + 1} of {num_rounds} "
 
+
     print(rounds_heading)
 
 
-    if rounds_played == 0:
+    #if rounds_played == 0:
 
-        ans = random.randint(100, 10000)
-        ans = num_1 * operator
-        question = f"\n {num_1} x {operator}= "
-        int(input(question))
-        if response == ans:
-            print("correct")
-        else:
-            print("incorrect")
+    ans = random.randint(100, 10000)
+    ans = num_1 * operator
+    question = f"\n {num_1} x {operator}= "
+    int(input(question))
+    if response == ans:
+        print("correct")
+    else:
+        print("incorrect")
+
+
+
 
 
 
