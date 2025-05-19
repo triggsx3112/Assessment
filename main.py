@@ -87,15 +87,13 @@ def level_check(question):
             return "level 3"
         elif response == "4" or response == "level 4":
             return "level 4"
-        elif response == "5" or response == "level 5":
-            return "level 5"
         else:
-                print("please enter a number between 1 and 5")
+                print("please enter a number between 1 and 4")
 
 
-num_1 = random.randint(1, 100)
-num_2 = random.randint(1, 100)
-operator = random.randint(2, 10)
+#num_1 = random.randint(1, 100)
+#num_2 = random.randint(1, 100)
+#operator = random.randint(2, 10)
 
 response = "regular"
 mode = "regular"
@@ -121,56 +119,136 @@ num_rounds = int_check("Rounds <enter for infinite>: ")
 
 if num_rounds == "infinite":
     mode = "infinite"
-    num_rounds = 5
+    num_rounds = 1000
 
-levels_select = level_check("What level? ")
+levels_select = level_check('''What level? 
+Level 1 is addition
+Level 2 is subtraction
+Level 3 is multiplication
+Level 4 is division
+''')
 
-if levels_select == "level 1":
-    level = "level 1"
-    levels_select = 1
+
 
 
 
     #if user_choice == "xxx":
         #break
+if levels_select == "level 1":
+    level = "level 1"
+    levels_select = 1
 
-while rounds_played < num_rounds:
-
-    if mode == "infinite":
-        rounds_heading = f"\n Round {rounds_played + 1} (Infinite Mode) "
-
-    else:
-        rounds_heading = f"\n round {rounds_played + 1} of {num_rounds} "
-
-
-    print(rounds_heading)
+    while rounds_played < num_rounds:
+        num_1 = random.randint(20, 1000)
+        operator = random.randint(10, 1000)
 
 
-    #if rounds_played == 0:
+        if mode == "infinite":
+            rounds_heading = f"\n Round {rounds_played + 1} (Infinite Mode) "
 
-    ans = random.randint(100, 10000)
-    ans = num_1 * operator
-    question = f"\n {num_1} x {operator}= "
-    int(input(question))
-    if response == ans:
+        else:
+            rounds_heading = f"\n round {rounds_played + 1} of {num_rounds} "
+
+
+        print(rounds_heading)
+
+
+        ans = num_1 + operator
+        print(f"{num_1} + {operator} =")
+
+        user_choice = int_check("answer: ")
+        if user_choice == ans:
+            print("correct")
+        else:
+            print("incorrect")
+            print(f"the correct answer was {ans}")
+
+if levels_select == "level 2":
+    level = "level 2"
+    levels_select = 2
+
+    while rounds_played < num_rounds:
+        num_1 = random.randint(500, 1000)
+        operator = random.randint(10, 500)
+
+        if mode == "infinite":
+            rounds_heading = f"\n Round {rounds_played + 1} (Infinite Mode) "
+
+        else:
+            rounds_heading = f"\n round {rounds_played + 1} of {num_rounds} "
+
+        print(rounds_heading)
+
+        ans = num_1 - operator
+        print(f"{num_1} - {operator} =")
+
+    user_choice = int_check("answer: ")
+    if user_choice == ans:
         print("correct")
     else:
         print("incorrect")
+        print(f"the correct answer was {ans}")
+
+if levels_select == "level 3":
+    level = "level 3"
+    levels_select = 3
+
+    while rounds_played < num_rounds:
+        num_1 = random.randint(1, 100)
+        operator = random.randint(2, 10)
+
+        if mode == "infinite":
+            rounds_heading = f"\n Round {rounds_played + 1} (Infinite Mode) "
+
+        else:
+            rounds_heading = f"\n round {rounds_played + 1} of {num_rounds} "
+
+        print(rounds_heading)
+
+        ans = num_1 * operator
+        print(f"{num_1} x {operator} =")
+
+    user_choice = int_check("answer: ")
+    if user_choice == ans:
+        print("correct")
+    else:
+        print("incorrect")
+        print(f"the correct answer was {ans}")
+
+if levels_select == "level 1":
+    level = "level 4"
+    levels_select = 4
+
+    while rounds_played < num_rounds:
+        num_1 = random.randint(10, 100)
+        operator = random.randint(1, 10)
+
+        if mode == "infinite":
+            rounds_heading = f"\n Round {rounds_played + 1} (Infinite Mode) "
+
+        else:
+            rounds_heading = f"\n round {rounds_played + 1} of {num_rounds} "
+
+        print(rounds_heading)
+
+        ans = num_1 / operator
+        print(f"{num_1} / {operator} =")
+
+    user_choice = int_check("answer: ")
+    if user_choice == ans:
+        print("correct")
+    else:
+        print("incorrect")
+        print(f"the correct answer was {ans}")
 
 
+round_feedback = f" {feedback}"
+history_item = f"round: {rounds_played} - {round_feedback}"
 
-
-
-
-
-
-    round_feedback = f" {feedback}"
-    history_item = f"round: {rounds_played} - {round_feedback}"
-
-    print(round_feedback)
+print(round_feedback)
     #game_history.append(history_item)
 
-    rounds_played += 1
+rounds_played += 1
 
 
 
