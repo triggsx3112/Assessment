@@ -113,18 +113,13 @@ if want_instructions == "yes":
     instructions()
 
 
-num_rounds = int_check("Rounds <enter for infinite>: ")
+num_rounds = int_check("How many questions? <enter for infinite>: ")
 
 if num_rounds == "infinite":
     mode = "infinite"
     num_rounds = 5
 
-levels_select = level_check('''What level? 
-Level 1 is addition
-Level 2 is subtraction
-Level 3 is multiplication
-Level 4 is division
-''')
+levels_select = level_check("What level? ")
 
 
 
@@ -134,15 +129,13 @@ Level 4 is division
 
 
 while rounds_played < num_rounds:
-    #num_1 = random.randint(20, 1000)
-    #operator = random.randint(10, 1000)
 
 
     if mode == "infinite":
-        rounds_heading = f"\n Round {rounds_played + 1} (Infinite Mode) "
+        rounds_heading = f"\n Questions {rounds_played + 1} (Infinite Mode) "
 
     else:
-        rounds_heading = f"\n round {rounds_played + 1} of {num_rounds} "
+        rounds_heading = f"\n Questions {rounds_played + 1} of {num_rounds} "
 
 
     print(rounds_heading)
@@ -150,13 +143,11 @@ while rounds_played < num_rounds:
     if levels_select == "level 1":
         level = "level 1"
         levels_select = 1
-
         num_1 = random.randint(1, 500)
         operator = random.randint(1, 500)
-
         ans = num_1 + operator
-        print(f"{num_1} + {operator} =")
-
+        question = f"{num_1} + {operator} ="
+        print(question)
         user_choice = int_check("answer: ")
         if user_choice == ans:
             print("correct")
@@ -174,14 +165,62 @@ while rounds_played < num_rounds:
     elif levels_select == "level 2":
         level = "level 2"
         levels_select = 2
+        num_1 = random.randint(1, 500)
+        operator = random.randint(1, 500)
+        ans = num_1 - operator
+        print(f"{num_1} - {operator} =")
+
+        user_choice = int_check("answer: ")
+        if user_choice == ans:
+            print("correct")
+        else:
+            print("incorrect")
+            print(f"the correct answer was {ans}")
+
+        if user_choice == "xxx":
+            break
+        else:
+            continue
 
     elif levels_select == "level 3":
         level = "level 3"
         levels_select = 3
+        num_1 = random.randint(1, 100)
+        operator = random.randint(1, 10)
+        ans = num_1 * operator
+        print(f"{num_1} x {operator} =")
+
+        user_choice = int_check("answer: ")
+        if user_choice == ans:
+            print("correct")
+        else:
+            print("incorrect")
+            print(f"the correct answer was {ans}")
+
+        if user_choice == "xxx":
+            break
+        else:
+            continue
 
     elif levels_select == "level 4":
         level = "level 4"
         levels_select = 4
+        num_1 = random.randint(1, 500)
+        operator = random.randint(1, 10)
+        ans = num_1 / operator
+        print(f"{num_1} / {operator} =")
+
+        user_choice = int_check("answer: ")
+        if user_choice == ans:
+            print("correct")
+        else:
+            print("incorrect")
+            print(f"the correct answer was {ans}")
+
+        if user_choice == "xxx":
+            break
+        else:
+            continue
 
 
     rounds_played += 1
@@ -189,50 +228,8 @@ while rounds_played < num_rounds:
 
 
 
+
+
 #print(round_feedback)
     #game_history.append(history_item)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
