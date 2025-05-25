@@ -95,7 +95,7 @@ def level_check(question):
 
 response = "regular"
 mode = "regular"
-
+level = "regular"
 rounds_played = 0
 end_game = "no"
 feedback = ""
@@ -121,9 +121,14 @@ if num_rounds == "infinite":
 
 levels_select = level_check("What level? ")
 
-
-
-
+if levels_select == "Level 1":
+    level = "level 1"
+elif levels_select == "level 2":
+    level = "level 2"
+elif levels_select == "level 3":
+    level = "level 3"
+elif levels_select == "level 4":
+    level = "level 4"
 
     #if user_choice == "xxx":   
 
@@ -140,8 +145,8 @@ while rounds_played < num_rounds:
 
     print(rounds_heading)
 
-    if levels_select == "level 1":
-        level = "level 1"
+
+    if level == "level 1":
         levels_select = 1
         num_1 = random.randint(1, 500)
         operator = random.randint(1, 500)
@@ -154,12 +159,6 @@ while rounds_played < num_rounds:
         else:
             print("incorrect")
             print(f"the correct answer was {ans}")
-
-        if user_choice == "xxx":
-            break
-        else:
-            continue
-
 
 
     elif levels_select == "level 2":
@@ -177,10 +176,6 @@ while rounds_played < num_rounds:
             print("incorrect")
             print(f"the correct answer was {ans}")
 
-        if user_choice == "xxx":
-            break
-        else:
-            continue
 
     elif levels_select == "level 3":
         level = "level 3"
@@ -197,10 +192,7 @@ while rounds_played < num_rounds:
             print("incorrect")
             print(f"the correct answer was {ans}")
 
-        if user_choice == "xxx":
-            break
-        else:
-            continue
+
 
     elif levels_select == "level 4":
         level = "level 4"
@@ -217,13 +209,11 @@ while rounds_played < num_rounds:
             print("incorrect")
             print(f"the correct answer was {ans}")
 
-        if user_choice == "xxx":
-            break
-        else:
-            continue
-
+    if end_game == "yes":
+        break
 
     rounds_played += 1
+
 
 
 
