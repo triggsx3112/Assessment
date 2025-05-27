@@ -100,6 +100,10 @@ rounds_played = 0
 end_game = "no"
 feedback = ""
 
+correct = 0
+incorrect = 0
+
+game_history = []
 
 print()
 print("welcome to the quiz quest")
@@ -145,6 +149,10 @@ while rounds_played < num_rounds:
 
     print(rounds_heading)
 
+    guess = ""
+    if guess == "xxx":
+        end_game = "yes"
+        break
 
     if level == "level 1":
         levels_select = 1
@@ -155,14 +163,18 @@ while rounds_played < num_rounds:
         print(question)
         user_choice = int_check("answer: ")
         if user_choice == ans:
-            print("correct")
+            feedback = ("correct")
+            correct += 1
         else:
-            print("incorrect")
-            print(f"the correct answer was {ans}")
+            feedback = ("incorrect, "
+                        f"the correct answer was {ans}")
+            incorrect += 1
+        print(feedback)
+        if user_choice == "xxx":
+            break
 
 
-    elif levels_select == "level 2":
-        level = "level 2"
+    elif level == "level 2":
         levels_select = 2
         num_1 = random.randint(1, 500)
         operator = random.randint(1, 500)
@@ -171,14 +183,18 @@ while rounds_played < num_rounds:
 
         user_choice = int_check("answer: ")
         if user_choice == ans:
-            print("correct")
+            feedback = ("correct")
+            correct += 1
         else:
-            print("incorrect")
-            print(f"the correct answer was {ans}")
+            feedback = ("incorrect, "
+                        f"the correct answer was {ans}")
+            incorrect += 1
+        print(feedback)
+        if user_choice == "xxx":
+            break
 
 
-    elif levels_select == "level 3":
-        level = "level 3"
+    elif level == "level 3":
         levels_select = 3
         num_1 = random.randint(1, 100)
         operator = random.randint(1, 10)
@@ -187,15 +203,19 @@ while rounds_played < num_rounds:
 
         user_choice = int_check("answer: ")
         if user_choice == ans:
-            print("correct")
+            feedback = ("correct")
+            correct += 1
         else:
-            print("incorrect")
-            print(f"the correct answer was {ans}")
+            feedback = ("incorrect, "
+                        f"the correct answer was {ans}")
+            incorrect += 1
+        print(feedback)
+        if user_choice == "xxx":
+            break
 
 
 
-    elif levels_select == "level 4":
-        level = "level 4"
+    elif level == "level 4":
         levels_select = 4
         num_1 = random.randint(1, 500)
         operator = random.randint(1, 10)
@@ -204,17 +224,41 @@ while rounds_played < num_rounds:
 
         user_choice = int_check("answer: ")
         if user_choice == ans:
-            print("correct")
+            feedback = ("correct")
+            correct += 1
         else:
-            print("incorrect")
-            print(f"the correct answer was {ans}")
+            feedback = ("incorrect, "
+                        f"the correct answer was {ans}")
+            incorrect += 1
+        print(feedback)
+        if user_choice == "xxx":
+            break
 
-    if end_game == "yes":
-        break
 
     rounds_played += 1
 
+    history_feedback = f"Round {rounds_played}: {feedback}"
+    history_item = f"round: {rounds_played} - {history_feedback}"
 
+    print(history_feedback)
+    game_history.append(history_item)
+
+if rounds_played > 0:
+    rounds_correct = rounds_played - incorrect
+    percent_won = rounds_correct / rounds_played * 100
+    percent_lost = incorrect / rounds_played * 100
+
+    print( "game results ")
+    print(f"Correct: {percent_won:.2f} \t "
+          f"incorrect: {percent_lost:.2f}")
+
+    see_history = string_checker("\nDo you want to see the game history? ")
+    if see_history == "yes":
+        for item in game_history:
+            print(item)
+
+    print()
+    print("Thanks for playing.")
 
 
 
