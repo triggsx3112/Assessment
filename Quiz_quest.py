@@ -60,6 +60,8 @@ def int_check(question):
 
         if to_check == "":
             return "infinite"
+        if to_check == "xxx":
+            return "xxx"
 
         try:
             response = int(to_check)
@@ -100,6 +102,7 @@ rounds_played = 0
 end_game = "no"
 feedback = ""
 
+
 correct = 0
 incorrect = 0
 
@@ -123,7 +126,7 @@ if num_rounds == "infinite":
     mode = "infinite"
     num_rounds = 5
 
-levels_select = level_check("What level? ")
+levels_select = level_check("What level would you like to work at? ")
 
 if levels_select == "Level 1":
     level = "level 1"
@@ -146,13 +149,12 @@ while rounds_played < num_rounds:
     else:
         rounds_heading = f"\n Questions {rounds_played + 1} of {num_rounds} "
 
+    if mode == "infinite":
+        num_rounds += 1
 
     print(rounds_heading)
 
-    guess = ""
-    if guess == "xxx":
-        end_game = "yes"
-        break
+
 
     if level == "level 1":
         levels_select = 1
@@ -162,6 +164,8 @@ while rounds_played < num_rounds:
         question = f"{num_1} + {operator} ="
         print(question)
         user_choice = int_check("answer: ")
+        if user_choice == "xxx":
+            break
         if user_choice == ans:
             feedback = ("correct")
             correct += 1
@@ -170,18 +174,20 @@ while rounds_played < num_rounds:
                         f"the correct answer was {ans}")
             incorrect += 1
         print(feedback)
-        if user_choice == "xxx":
-            break
+
+
 
 
     elif level == "level 2":
         levels_select = 2
-        num_1 = random.randint(1, 500)
-        operator = random.randint(1, 500)
+        num_1 = random.randint(250, 500)
+        operator = random.randint(1, 250)
         ans = num_1 - operator
         print(f"{num_1} - {operator} =")
 
         user_choice = int_check("answer: ")
+        if user_choice == "xxx":
+            break
         if user_choice == ans:
             feedback = ("correct")
             correct += 1
@@ -190,8 +196,7 @@ while rounds_played < num_rounds:
                         f"the correct answer was {ans}")
             incorrect += 1
         print(feedback)
-        if user_choice == "xxx":
-            break
+
 
 
     elif level == "level 3":
@@ -202,6 +207,8 @@ while rounds_played < num_rounds:
         print(f"{num_1} x {operator} =")
 
         user_choice = int_check("answer: ")
+        if user_choice == "xxx":
+            break
         if user_choice == ans:
             feedback = ("correct")
             correct += 1
@@ -210,8 +217,7 @@ while rounds_played < num_rounds:
                         f"the correct answer was {ans}")
             incorrect += 1
         print(feedback)
-        if user_choice == "xxx":
-            break
+
 
 
 
@@ -223,6 +229,8 @@ while rounds_played < num_rounds:
         print(f"{num_1} / {operator} =")
 
         user_choice = int_check("answer: ")
+        if user_choice == "xxx":
+            break
         if user_choice == ans:
             feedback = ("correct")
             correct += 1
@@ -231,8 +239,7 @@ while rounds_played < num_rounds:
                         f"the correct answer was {ans}")
             incorrect += 1
         print(feedback)
-        if user_choice == "xxx":
-            break
+
 
 
     rounds_played += 1
@@ -249,8 +256,8 @@ if rounds_played > 0:
     percent_lost = incorrect / rounds_played * 100
 
     print( "game results ")
-    print(f"Correct: {percent_won:.2f} \t "
-          f"incorrect: {percent_lost:.2f}")
+    print(f"Correct: {percent_won:.2f}% \t "
+          f"incorrect: {percent_lost:.2f}%")
 
     see_history = string_checker("\nDo you want to see the game history? ")
     if see_history == "yes":
@@ -260,6 +267,8 @@ if rounds_played > 0:
     print()
     print("Thanks for playing.")
 
+else:
+    print("You didn't try any questions :(")
 
 
 
