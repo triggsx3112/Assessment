@@ -19,7 +19,7 @@ def string_checker(question, valid_ans=('yes', 'no')):
         print(error)
         print()
 
-
+#check if user response is a yes/no
 def yes_no(question):
     while True:
 
@@ -33,7 +33,7 @@ def yes_no(question):
         else:
             print("please enter a yes / no")
 
-
+#instructions
 def instructions():
     print('''
 To Begin the game choose the amount of questions
@@ -50,7 +50,7 @@ Good luck!
 
     ''')
 
-
+# check if user response is 1 or more
 def int_check(question):
 
     while True:
@@ -112,6 +112,7 @@ print()
 print("welcome to the quiz quest")
 print()
 
+#ask if user wants instructions
 want_instructions = yes_no("Do you want to see the instructions? ")
 print(f"you chose {want_instructions}")
 
@@ -119,13 +120,13 @@ print(f"you chose {want_instructions}")
 if want_instructions == "yes":
     instructions()
 
-
+#ask for number of rounds
 num_rounds = int_check("How many questions? <enter for infinite>: ")
 
 if num_rounds == "infinite":
     mode = "infinite"
     num_rounds = 5
-
+#Check the level wanted
 levels_select = level_check("What level would you like to work at? ")
 
 if levels_select == "Level 1":
@@ -137,9 +138,8 @@ elif levels_select == "level 3":
 elif levels_select == "level 4":
     level = "level 4"
 
-    #if user_choice == "xxx":   
 
-
+# Level code
 while rounds_played < num_rounds:
 
 
@@ -258,7 +258,7 @@ if rounds_played > 0:
     print( "game results ")
     print(f"Correct: {percent_won:.2f}% \t "
           f"incorrect: {percent_lost:.2f}%")
-
+#check if user would like game quiz history
     see_history = string_checker("\nDo you want to see the game history? ")
     if see_history == "yes":
         for item in game_history:
@@ -266,13 +266,6 @@ if rounds_played > 0:
 
     print()
     print("Thanks for playing.")
-
+# Print this if user quits before answering any questions
 else:
     print("You didn't try any questions :(")
-
-
-
-
-#print(round_feedback)
-    #game_history.append(history_item)
-
